@@ -1,0 +1,17 @@
+# Top-level configuration
+name = "quiz-bot-workers"
+main = "src/main.ts"
+compatibility_date = "2025-04-12"
+compatibility_flags = ["nodejs_compat_v2"]
+
+
+[[kv_namespaces]]
+binding = "KV"                          # KV という名前でバインド
+id = "2fe8d102723742efbbfcb8822fcb4397"
+
+
+[observability]
+enabled = true
+
+[placement]
+mode = "smart"

@@ -1,0 +1,27 @@
+{
+  "name": "quiz-bot-workers",
+  "module": "src/main.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "register": "bun --env-file=.env.local run src/register.ts",
+    "dev": "wrangler dev",
+    "types": "wrangler types",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@cloudflare/workers-types": "^4.20250412.0",
+    "@types/bun": "latest",
+    "cloudflare": "^4.2.0",
+    "discord-api-types": "^0.37.120",
+    "wrangler": "^4.10.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "discord-hono": "^0.16.4",
+    "hono": "^4.7.6"
+  }
+}
