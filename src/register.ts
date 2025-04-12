@@ -1,5 +1,6 @@
 import Cloudflare from "cloudflare";
 import { Command, Option, register } from "discord-hono";
+import { QUIZ_PREFIX } from "./kv";
 
 const client = new Cloudflare({
     apiToken: process.env.CLOUDFLARE_API_TOKEN,
@@ -12,11 +13,11 @@ for await (
         process.env.CLOUDFLARE_KV_ID,
         {
             account_id: process.env.CLOUDFLARE_ACCOUNT_ID,
-            prefix: "quiz_",
+            prefix: QUIZ_PREFIX,
         },
     )
 ) {
-    keys.push(key.name.replace("quiz_", ""));
+    keys.push(key.name.replace(QUIZ_PREFIX, ""));
 }
 
 const commands = [
@@ -38,6 +39,7 @@ const commands = [
             })),
         ),
     ),
+    new Command("profile", "現在の回答状況を取得します"),
 ];
 
 register(
